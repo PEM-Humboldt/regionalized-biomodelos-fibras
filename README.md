@@ -4,9 +4,9 @@ title: "regionalized-biomodelos-fibras"
 
 # BioModelos Regionalizados: modelos de especies registradas con cámaras trampa para zonas específicas de Colombia 
 
-BioModelos es un sistema colaborativo en línea para mapear distribuciones de especies (Velásquez-Tibata et al, 2019). Este repositorio almacena las funciones desarrolladas para construir modelos de distribución potencial de especies registradas con cámaras trampa. Estos modelos fueron entrenados y proyectados multitemporalmente (meses), a partir de datos satelitales MODIS y registros obtenidos a través del proyecto fibras usando cámaras trampa principalmente. La integración de las dos fuentes de información se desarrolló usando rutinas de jscript en Google Earth Engine (GEE).
+BioModelos es un sistema colaborativo en línea para mapear distribuciones de especies (Velásquez-Tibata et al, 2019). Este repositorio almacena las funciones desarrolladas para construir modelos de distribución potencial de hábitat de especies registradas con cámaras trampa. Estos modelos fueron entrenados y proyectados multitemporalmente (meses), a partir de datos satelitales MODIS y registros obtenidos a través del proyecto fibras usando cámaras trampa principalmente. La integración de las dos fuentes de información se desarrolló usando rutinas de jscript en Google Earth Engine (GEE).
 
-*El flujo de datos y procesos implementados para la obtención de los modelos, tanto en formato de idoneidad de hábitat como distribución potencial, se encuentran sintetizado en la siguiente figura:*
+*El flujo de datos y procesos implementados para la obtención de los modelos, tanto en formato de idoneidad de hábitat como distribución potencial de hábitat, se encuentran sintetizado en la siguiente figura:*
 ![](images/flujo.png)
 
 Para ejecutar las funciones se debe seguir la siguiente secuencia:
@@ -27,7 +27,7 @@ Estado Actual: primera versión.
 
 ### Google Earth Engine (GEE)
 
-Los siguientes códigos fueron escritos en GEE de modo que para ejecutarlos es indispensable tener un usuario autorizado en dicha plataforma. GEE es de uso gratuito para investigación publica y docencia, y solo algunos casos específicos requieren una licencia.
+Los siguientes códigos fueron escritos en GEE de modo que para ejecutarlos es indispensable tener un usuario autorizado en dicha plataforma. GEE es de uso gratuito para investigación pública y docencia, y solo algunos casos específicos requieren una licencia.
 
 
 En este link se puede aprender de las generalidades de GEE y conocer a profundidad sus usos y alcances: https://earthengine.google.com/ Para registrarse recuerde dar click en el botón “Sing Up”, y seguir los pasos que le dará la plataforma GEE
@@ -56,7 +56,7 @@ Es necesario generar las siguientes carpetas cuando vaya a correr las rutinas, y
 
 ### Data
 
-Antes de usar los códigos es importante haber subido a GEE los registros de las especies que se desean modelar, siguiendo el formato de fehca mencionado previamente.
+Antes de usar los códigos es importante haber subido a GEE los registros de las especies que se desean modelar, siguiendo el formato de fecha mencionado previamente.
 
 Es importante recordar que los códigos aquí descritos se deben modificar con las rutas de dirección y los nombres de los archivos según el usuario.
 
@@ -64,7 +64,7 @@ Es importante recordar que los códigos aquí descritos se deben modificar con l
 
 Los siguientes archivos deben ser subidos en la carpeta inputs:
 
-1. areas_estudio: es una FeatureCollection que contiene en formato vectorial tipo shape, los polígonos de las áreas de estudio, (cada área debe ser un vector diferente, un multipoligono deberá ser separado en polígonos independientes), este archivo debe tener un atributo (columna) con un nombre de área de estudio estandarizado (sin espacios). (Si el nombre no es estandarizado implicara modificar manualmente todas las direcciones de archivos dentro de los códigos).
+1. areas_estudio: es una FeatureCollection que contiene en formato vectorial tipo shape, los polígonos de las áreas de estudio, (cada área debe ser un vector diferente, un multipoligono deberá ser separado en polígonos independientes), este archivo debe tener un atributo (columna) con un nombre de área de estudio estandarizado (sin espacios). (Si el nombre no es estandarizado, implicará modificar manualmente todas las direcciones de archivos dentro de los códigos).
 
 2. registros, es una FeatureCollection que contiene en formato vectorial tipo shape, los puntos dentro de las áreas de estudio, con los registros de las especies, estos registros deben tener los siguientes atributos (columnas):
     * Nombre científico corectamente escrito: Género + epíteto específico
@@ -73,15 +73,15 @@ Los siguientes archivos deben ser subidos en la carpeta inputs:
 
 ## Ejecutar
 
-- Los códigos deben ser ejecutados de manera secuencial por eso los scripts están numerados.
+- Los códigos deben ser ejecutados de manera secuencial, por eso los scripts están numerados.
 
 - Dentro de cada script hay líneas cometidas, que explican que hace cada comando
 
-- Se debe esperar a que las tareas de un script terminen de ser ejecutadas, antes de correr las tareas del siguiente.
-- Hay secciones del código que no se debe correr siempre. Por lo tanto, pueden ser comentadas o no ejecutadas. Estas son:
+- Se debe esperar a que las tareas de un script terminen de ser ejecutadas antes de correr las tareas del siguiente.
+- Hay secciones del código que no se deben correr siempre. Por lo tanto, pueden ser comentadas o no ejecutadas. Estas son:
 
-  - los Export: Los Export: la mayoría de scripts exportar resultados a los assets o al Drive, cada usuario puede decidir si guarda esos archivos en su drive. Necesariamente, los resultados serán almacenados en sus assets.
-  - Hay secciones del código que generara errores, pero no evitaran que se ejecuten las funciones, (estos errores son más bien advertencias cuando se visualizan los mapas en el panel de mapas). Estas partes del código serán señaladas.
+  - los Export: Los Export: la mayoría de scripts exportan resultados a los assets o al Drive, cada usuario puede decidir si guarda esos archivos en su drive. Necesariamente, los resultados serán almacenados en sus assets.
+  - Hay secciones del código que generaran errores, pero no evitarán que se ejecuten las funciones, (estos errores son más bien advertencias cuando se visualizan los mapas en el panel de mapas). Estas partes del código serán señaladas.
 
 1. Se generaron 2 tipos de modelos con 2 diferentes sets de datos. Los datos de entrenamiento pueden ser registros de foto trampeo exclusivamente "FOTO" o registros de foto trampeo con registros adicionales de otros muestreos "TODOS". Esto permitirá generar los mejores modelos posibles. Igual posteriormente la evaluación permitirá evaluar matemáticamente el rendimiento de los modelos o ser usados para acompañar el criterio experto en el análisis posterior de los modelos.
   * 1.1 Copiar el código. "1.1 entrenamiento"” en el editor de código de GEE
@@ -143,13 +143,13 @@ Una vez activo se deberá cambiar el valor del mes que se quiere como se muestra
   * 3.2 Este código se debe ejecutar para cada área de estudio, con cada uno de los datos de entrenamiento (TODOS y FOTO), es importante recalcar que para cada área de estudio toca cambiar la lista de especies que se van a evaluar, correspondiendo a las especies con registro por área de estudio (es importante recalcar que este código no hace falta ejecutarlo para cada especie, sino solo por área de estudio), esta tabla se guardara en la carpeta de cada área de estudio (al final deben de haber 2 tablas de fiabilidad por área de estudio (TODOS y FOTO))
   * 3.3 Es importante revisar esa tabla y las métricas de cada modelo para poder seleccionar los modelos adecuados, nuestro criterio para determinar modelos aceptables fue que tuvieran un valor de AUC igual o mayor a 0.7. 
   
-    Hubo especies que no tuvieron ningún modelo que cumpliera ese requisito, por lo tanto esas especies no se les hizo modelo de conectividad. Así mismo hubo especies con varios modelos que superaban el umbral de 0.7.En esos casos se usó criterio experto para determinar el mejor modelo para cada especie en cada área de estudio (ver el paso siguiente).
+    Hubo especies que no tuvieron ningún modelo que cumpliera ese requisito, por lo tanto, esas especies no se les hizo modelo de conectividad. Así mismo hubo especies con varios modelos que superaban el umbral de 0.7.En esos casos se usó criterio experto para determinar el mejor modelo para cada especie en cada área de estudio (ver el paso siguiente).
 
-4.Generar modelo de idoneidad de hábitat o de idoneidad, este código tiene varios detalles que es importante prestar atención para generar correctamente el mapa. Además este código es posible que muestre errores en la consola, pero eso no impide que se genere el mapa, son más bien advertencias.
+4.Generar modelo de idoneidad de hábitat o de idoneidad, este código tiene varios detalles que es importante prestar atención para generar correctamente el mapa. Además, este código es posible que muestre errores en la consola, pero eso no impide que se genere el mapa, son más bien advertencias.
 
   * 4.1 Copiar el código '*4.MapaConec*'en el editor de código de GEE
   
-  * 4.2 Es importante aclarar que no necesariamente todas las especies registradas con cámaras trampa tuvieron registros adicionales de otros muestreos, de modo que hay especies que solo fueron creados con registros de foto trampeo. En esos casos el código arrojará un error que dice algo similar a estos: 
+  * 4.2 Es importante aclarar que no necesariamente todas las especies registradas con cámaras trampa tuvieron registros adicionales de otros muestreos, de modo que hay especies que solo fueron creadas con registros de foto trampeo. En esos casos el código arrojará un error que dice algo similar a estos: 
 ```java
   List (Error)
   Collection.loadTable: Collection asset 'users/Biomodelos_Iavh/ecopetrol/RioTillava/training/todos_Tapirus_terrestris_training' not found.
@@ -162,7 +162,7 @@ Una vez activo se deberá cambiar el valor del mes que se quiere como se muestra
   Estos errores son advertencias que dicha especie para esa área de estudio no tiene datos de entrenamiento con registros adicionales, de modo que no se generaron los modelos con los datos “TODOS” pero no son errores que generen problemas. Así se verán este tipo de errores en la consola:
   ![](images/error.png)
   
-  * 4.3 De forma similar en el panel de capas en esos casos donde no hay modelos con datos “TODOS” aparecerán barras rojas en el administrador de capas, pues como esas capas no existen no pueden mostrarlas. Así se verán este tipo de errores en la consola:
+  * 4.3 De forma similar en el panel de capas en esos casos donde no hay modelos con datos “TODOS” aparecerán barras rojas en el administrador de capas, pues como esas capas no existen, no pueden mostrarlas. Así se verán este tipo de errores en la consola:
   ![](images/error2.png)
   
         Si nos fijamos bien las capas que dicen TODOS son las que no se muestran y muestran error
@@ -196,15 +196,15 @@ Una vez activo se deberá cambiar el valor del mes que se quiere como se muestra
   
   * 5.2 Este código para ejecutarse se debe verificar que las variables de entrada coincidan con el modelo de idoneidad generado en el paso anterior. Es decir, verificar que si se creó un modelo RF con datos TODOS. Luego, debe especificar esas mismas variables en la rutina.
   
-        Este código se debe ejecutar por cada especie en cada área de estudio. En el panel de mapas mostrara los registros, el modelo de idoneidad y el binario resultante a partir del umbral determinado por la probabilidad menor de los registros (Mínimo valor de entrenamiento; el umbral se puede verificar en la consola).
+        Este código se debe ejecutar por cada especie en cada área de estudio. En el panel de mapas mostrará los registros, el modelo de idoneidad y el binario resultante a partir del umbral determinado por la probabilidad menor de los registros (Mínimo valor de entrenamiento; el umbral se puede verificar en la consola).
       
-  * 5.3 Este código se debe ejecutar los "exports", no es necesario exportar al drive pero se recomienda hacerlo.
+  * 5.3 Este código se debe ejecutar los "exports", no es necesario exportar al drive, pero se recomienda hacerlo.
   
 6. mapa de riqueza
 
-  * 6.1 El mapa de riqueza no tiene un script puntual, porque cada área tiene especies diferentes, entrenados con datos distintos (foto y todos) y con varios algoritmos (BRT, RF, y Maxent) de modo que las direcciones de los archivos varían mucho, y requieren ser modificadas para cada área.
+  * 6.1 El mapa de riqueza no tiene un script puntual, porque cada área tiene especies diferentes, entrenados con datos distintos (foto y todos) y con varios algoritmos (BRT, RF y Maxent) de modo que las direcciones de los archivos varían mucho, y requieren ser modificadas para cada área.
   
-  * 6.2 Sin embargo para generar el mapa de riqueza simplemente se importan todas las capas binarias y se suman.
+  * 6.2 Sin embargo, para generar el mapa de riqueza simplemente se importan todas las capas binarias y se suman.
 
     
 ## Autores y contacto
@@ -216,11 +216,20 @@ Una vez activo se deberá cambiar el valor del mes que se quiere como se muestra
 
 ## Reconocimientos
 
-Los desarrollos de estas rutinas fueron parcialmente finaciados por Ecopetrol, dentro de la estrategía de monitoreo usando modelos regionalizados en el Proyecto FIBRAS.
+Los desarrollos de estas rutinas fueron parcialmente financiados por Ecopetrol, dentro de la estrategia de monitoreo usando modelos regionalizados en el Proyecto FIBRAS.
 
 La plataforma BioModelos con los modelos regionalizados, hace parte de las estrategías del Instituto Humboldt, para monitorear especies e identificar la pérdida de hábitat casi en tiempo real.
 
-Los desarrollos fueron particialmente incentivados dentro del proyecto BioModelos para integrar datos de seonsres remotos en Google Earth Engine, con una beca dentro del programa Group on Earth Observations (GEO) - Google Earth Engine (GEE) que proporciona financiamiento para abordar desafíos ambientales y sociales utilizando datos abiertos de la Tierra.
+Los desarrollos fueron particularmente incentivados dentro del proyecto BioModelos para integrar datos de sensores remotos en Google Earth Engine, con una beca dentro del programa Group on Earth Observations (GEO) - Google Earth Engine (GEE) que proporciona financiamiento para abordar desafíos ambientales y sociales utilizando datos abiertos de la Tierra.
+
+## Referencias
+* Majumder, A., Suryan, T., Rizvi, T., Tripathi, R. M., & Nag, S. (2024). Assessment of the population and suitable habitat for a leopard (Panthera pardus) in the urban landscapes of Central India. European Journal of Wildlife Research, 70(6), 120.https://link.springer.com/article/10.1007/s10344-024-01871-7
+* Rather, T. A., Kumar, S., & Khan, J. A. (2020). Multi-scale habitat modelling and predicting change in the distribution of tiger and leopard using random forest algorithm. Sci Rep 10: 11473. https://www.nature.com/articles/s41598-020-68167-z
+* Rather, T. A., Kumar, S., & Khan, J. A. (2020). Multi-scale habitat selection and impacts of climate change on the distribution of four sympatric meso-carnivores using random forest algorithm. Ecological Processes, 9(1), 60.
+* Rezaei, S., Mohammadi, A., Shadloo, S., Ranaie, M., & Wan, H. Y. (2023). Climate change induces habitat shifts and overlaps among carnivores in an arid and semi-arid ecosystem. Ecological Informatics, 77, 102247. https://www.sciencedirect.com/science/article/pii/S1574954123002765
+* Slovikosky, S. A., Petracca, L. S., Hunter, L. T., & Frair, J. L. (2025). Spatially explicit estimates of global population potential for leopard (Panthera pardus). Biodiversity and conservation, 1-19. https://link.springer.com/article/10.1007/s10531-025-03131-9#Sec2
+* Tuohetahong, Y., Lu, R., Guo, R., Gan, F., Zhao, F., Ding, S., ... & Yu, X. (2024). Climate and land use/land cover changes increasing habitat overlap among endangered crested ibis and sympatric egret/heron species. Scientific Reports, 14(1), 20736. https://www.nature.com/articles/s41598-024-71782-9
+* Yuan, X., Hu, Q., Bu, R., Yang, J., Lin, L., & Shi, H. T. (2025). Microhabitat selection by the Beale’s eyed turtle (Sacalia bealei) and conservation implications. Global Ecology and Conservation, e03607. https://www.sciencedirect.com/science/article/pii/S2351989425002082
 
 ## Licencia
 
