@@ -6,6 +6,8 @@ title: "regionalized-biomodelos-fibras"
 
 BioModelos es un sistema colaborativo en línea para mapear distribuciones de especies (Velásquez-Tibata et al, 2019). Este repositorio almacena las funciones desarrolladas para construir modelos de hábitat potencial de especies registradas con cámaras trampa. Estos modelos fueron entrenados y proyectados multitemporalmente (meses), a partir de datos satelitales MODIS y registros obtenidos a través del proyecto fibras usando cámaras trampa principalmente. La integración de las dos fuentes de información se desarrolló usando rutinas de jscript en Google Earth Engine (GEE).
 
+"Este proyecto genera mapas y protocolos gratuitos utilizando datos de GEE para identificar alertas de pérdida de hábitat casi en tiempo real. Desarrollaremos herramientas que permitan el monitoreo de especies mediante la integración de técnicas de modelado de nichos ecológicos (sistema BioModelos), registros de especies publicados a través de SiB Colombia y datos obtenidos mediante teledetección a través de Google Earth Engine (GEE). Los resultados de este proyecto podrían utilizarse para generar informes nacionales para el monitoreo adecuado, la gestión adaptativa y la conservación de la biodiversidad, y para mejorar los indicadores de monitoreo (https://old.earthobservations.org/article.php?id=447)"
+
 *El flujo de datos y procesos implementados para la obtención de los modelos, tanto en formato de idoneidad de hábitat como distribución potencial de hábitat, se encuentran sintetizado en la siguiente figura:*
 ![](images/flujo.png)
 
@@ -221,6 +223,16 @@ Los desarrollos de estas rutinas fueron parcialmente financiados por Ecopetrol, 
 La plataforma BioModelos con los modelos regionalizados, hace parte de las estrategías del Instituto Humboldt, para monitorear especies e identificar la pérdida de hábitat casi en tiempo real.
 
 Los desarrollos fueron particularmente incentivados dentro del proyecto BioModelos para integrar datos de sensores remotos en Google Earth Engine, con una beca dentro del programa Group on Earth Observations (GEO) - Google Earth Engine (GEE) que proporciona financiamiento para abordar desafíos ambientales y sociales utilizando datos abiertos de la Tierra.
+
+## Divulgación y premios
+* Geo for Good Lightning Talks #11: GEO-GEE Programme - Forest & Nature. https://earthoutreachonair.withgoogle.com/events/lightningtalk11
+* GEO and Google Earth Engine announce funding for 32 projects to improve our planet. https://old.earthobservations.org/article.php?id=447
+* GEO-GEE Virtual Meetup: Biodiversity and Climate Change. https://www.youtube.com/watch?v=Lak08XYWe6E
+* Multi-temporal habitat maps based on ecological niche models using Google Earth Engine. https://event.fourwaves.com/geobon-2023/abstracts/4b61e71d-4414-4332-a8f5-f4f63e719649
+* Consulta las herramientas de datos sobre biodiversidad. https://www.humboldt.org.co/consulta
+* EO Data Science Blog. https://newsroom.eodatascience.com/
+* 32 projects to be funded by GEO and Google Earth Engine to solve world’s greatest challenges. https://geospatialworld.net/news/32-projects-to-be-funded-by-geo-and-google-earth-engine-to-solve-worlds-greatest-challenges/
+* Interim update of the GEO Cloud Credits Programme. https://old.earthobservations.org/documents/pb/me_202306/PB-26-11_Interim_Update_of_the_GEO_Cloud_Credits_Programmes.pdf
 
 ## Referencias
 * Majumder, A., Suryan, T., Rizvi, T., Tripathi, R. M., & Nag, S. (2024). Assessment of the population and suitable habitat for a leopard (Panthera pardus) in the urban landscapes of Central India. European Journal of Wildlife Research, 70(6), 120.https://link.springer.com/article/10.1007/s10344-024-01871-7
